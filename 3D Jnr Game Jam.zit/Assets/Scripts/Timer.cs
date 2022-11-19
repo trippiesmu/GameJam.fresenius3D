@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class Timer : MonoBehaviour
             SetTimerText();
             timerText.color = Color.red;
             enabled = false;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         SetTimerText();
