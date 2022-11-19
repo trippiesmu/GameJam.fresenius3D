@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -36,5 +37,13 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         rb.AddForce(new Vector3(xInput, 0f, zInput) * moveSpeed);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Goal")
+        {
+            SceneManager.LoadScene("level");
+        }
     }
 }
